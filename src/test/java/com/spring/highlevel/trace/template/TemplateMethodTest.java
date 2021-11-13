@@ -1,5 +1,8 @@
 package com.spring.highlevel.trace.template;
 
+import com.spring.highlevel.trace.template.code.AbstractTemplate;
+import com.spring.highlevel.trace.template.code.SubClassLogic1;
+import com.spring.highlevel.trace.template.code.SubClassLogic2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +35,15 @@ public class TemplateMethodTest {
         long resultTime = endTime - startTime;
 
         log.info("resultTime : {}", resultTime);
+    }
+
+    @Test
+    void 템플릿_메소드_패턴_적용() {
+        AbstractTemplate template1 = new SubClassLogic1();
+        template1.call();
+
+        AbstractTemplate template2 = new SubClassLogic2();
+        template2.call();
     }
 
 }
