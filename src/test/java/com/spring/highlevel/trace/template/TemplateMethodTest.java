@@ -46,4 +46,14 @@ public class TemplateMethodTest {
         template2.call();
     }
 
+    @Test
+    void 익명내부클래스를_사용한_템플릿_메소트패턴적용() {
+        AbstractTemplate template = new AbstractTemplate() {
+            @Override
+            public void call() {
+                log.info("익명 비즈니스로직 실행");
+            }
+        };
+        template.execute();
+    }
 }
