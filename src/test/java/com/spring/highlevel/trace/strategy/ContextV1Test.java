@@ -51,4 +51,36 @@ public class ContextV1Test {
         ContextV1 contextV2 = new ContextV1(strategy2);
         contextV2.execute();
     }
+
+    @Test
+    void 전략패턴_with_익명내부클래스() {
+        Strategy strategy = new Strategy() {
+            @Override
+            public void call() {
+                log.info("익명 내부 비즈니스 로직");
+            }
+        };
+
+        ContextV1 contextV1 = new ContextV1(strategy);
+        contextV1.execute();
+    }
+
+    @Test
+    void 전략패턴_with_익명내부클래스_코드_줄이기() {
+
+        ContextV1 contextV1 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("익명 내부 비즈니스 로직");
+            }
+        });
+        contextV1.execute();
+    }
+
+    @Test
+    void 전략패턴_with_익명내부클래스_코드_줄이기_람다식_쓰기() {
+
+        ContextV1 contextV1 = new ContextV1(()->log.info("익명 내부 비즈니스 로직"));
+        contextV1.execute();
+    }
 }
